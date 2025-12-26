@@ -18,9 +18,7 @@ import io
 import json
 import random
 
-# ---------------------------
-# Config (MUST match training)
-# ---------------------------
+
 TOKENIZER_PATH = Path("outputs/tokenizer.pkl")
 MODEL_PATH = Path("models/multimodal_model.keras")
 
@@ -30,9 +28,7 @@ IMAGE_SIZE = (128, 128)
 VAL_JSON = Path("data/fakeddit_subset/validation_data_fakeddit.jsonl")
 VAL_IMG_DIR = Path("data/fakeddit_subset/validation_image")
 
-# ---------------------------
-# Utilities
-# ---------------------------
+
 
 def clean_text(text: str) -> str:
     if not text:
@@ -53,9 +49,6 @@ def pad_sequence(seq, maxlen=MAX_SEQ_LEN):
     return arr
 
 
-# ---------------------------
-# Cached loading
-# ---------------------------
 
 @st.cache_resource
 def load_tokenizer(path: Path):
@@ -99,9 +92,6 @@ def load_multimodal_model(path: Path):
     return load_model(path)
 
 
-# ---------------------------
-# Preprocessing
-# ---------------------------
 
 def preprocess_text(text, tokenizer):
     text = clean_text(text)
