@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+models/*.keras
+outputs/
+data/
+.env
+venv/
+env/
